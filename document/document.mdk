@@ -21,10 +21,11 @@ parallel programs written using MPI , openMP.
 
 # Related Work
 
-[@miller2014foundational] is a paper i am currently reading.
-[@adhianto2010hpctoolkit] describes HPC toolkit.
+Work on effective and efficient debugging of parallel programs has been around since HPC started. Much work has been done to provide insight into the runtime characteristics of parallel programs, including work in program tracing, instrumentation, and runtime program control (e.g., breakpoints). We provide here brief descriptions of the work done in these fields and where our work fits in.
 
-HMM papers too.
+Program analysis, instrumentation, and control of binaries is the area of focus for the Dyninst API and its sub-APIs. Dyninst allows for runtime instrumentation of binaries to obtain  [@buck2000api]. Other capabilities include static and dynamic analysis of program binaries, including analysis of control flows via abstractions of instructions, basic blocks, loops, and functions. Finally, Dyninst allows for advanced program flow control, using breakpoints, thread/processing control, and thread/process monitoring [@miller2014foundational]. While this provides useful insight into parallel programs, it is mostly meant to be built on top of to allow more advanced debugging features.
+
+
 
 # Methodology
 ![Lifecycle] 
@@ -96,7 +97,7 @@ I would like to thank ...
 
 # An appendix { @h1:"A" }
 
-## SNIPETTS TO WRITE THIS PAPER
+## SNIPPETS TO WRITE THIS PAPER
 
 ### PROOFS
 ~ Lemma { #lemma-test; caption:"A __lemma__ caption" }
