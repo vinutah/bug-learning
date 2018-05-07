@@ -28,21 +28,27 @@ parallel programs written using MPI , openMP.
 
 ## Gather Data
 
-
 ## Gather knowledge
 
 ## Visualise
 
 ## Construct a model
 
+### Training 
+
 ## Perform Inference
+
+### cuPGM
 
 ![Lifecycle] 
 
-[source](http://mbmlbook.com/LifeCycle.html)  
+[source](http://mbmlbook.com/LifeCycle.html)
 
 ## Evaluate Results
 
+## Debug and diagnose
+
+## Refinements to data, model or inference
 
 
 
