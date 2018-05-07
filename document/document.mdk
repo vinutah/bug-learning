@@ -24,33 +24,67 @@ parallel programs written using MPI , openMP.
 [@miller2014foundational] is a paper i am currently reading.
 [@adhianto2010hpctoolkit] describes HPC toolkit.
 
+HMM papers too.
+
 # Methodology
-
-## Gather Data
-
-## Gather knowledge
-
-## Visualise
-
-## Construct a model
-
-### Training 
-
-## Perform Inference
-
-### cuPGM
-
 ![Lifecycle] 
 
 [source](http://mbmlbook.com/LifeCycle.html)
+## Gather Data
+Our dataset consists of industry-level MPI programs that we consolidated from papers from
+other debugging and tracing programs.
+
+The traces are performed using ParLOT, which provide us with approximate call stack traces.
+These traces are then filtered down to only MPI calls, to allow for more rich content.
+
+## Gather knowledge
+The trace of a program execution represents a sequence of function calls (and returns).
+The motivation of our project is the belief that these traces contain within them inherent
+and noticable patterns indicating whether the program is valid or buggy. The challenge then
+is to create a model that can effectively and efficiently learn sequential patterns based on
+traces from good program traces and be able to identify, using the model, good and bad traces
+in some manner.
+
+## Visualize
+Line graphs to show program traces. Use other statistics as well - trace length, edge counts (?),
+etc.
+
+## Construct a model
+
+We have started our exploration by using the Hidden Markov Model (HMM). HMMs are a generative
+model that can be used to learn and perform inference on sequential data. (More in background
+section to come). This matches the inherent nature of our problam as discussed in 3.2.
+
+### Training 
+
+Training will be done using the Baum-Welch algorithm of HMMs (ref. for details). This can be
+fed good program traces and tune the model parameters to match the data.
+
+## Perform Inference
+
+Our form of inference relies upon the scaled forward algorithm for HMMs. This allows one to 
+determine the likelihood of a given model (parameterized by the above training) emitting a
+given observation sequence, in our case, a given MPI trace. Using the output probability, we
+can determine using a learned threshold, whether the program is likely to be buggy or valid.
+If buggy, we can flag the program and future iterations of the model can flag specific locations
+for likely causes.
+
+### cuPGM
+
+Uses cuPGM to perform fast scaled forward algorithm using GPU speedup.
 
 ## Evaluate Results
 
+Run tests against our dataset and perform benchmarkings against other debugging techniques.
+
 ## Debug and diagnose
+
+TODO - firsts results were not great but have not been inspected yet.
 
 ## Refinements to data, model or inference
 
-
+- Rosenblum tweaks - create further abstractions of the raw trace for richer features.
+- Formal state selection.
 
 ### Acknowledgments {-}
 
