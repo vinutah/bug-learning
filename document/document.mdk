@@ -1,12 +1,9 @@
 [INCLUDE=style/ieee]
-Title       : Sample article for the IEEE transactions style
-Author      : John Q. Open
-Affiliation : Research institute
-Email       : you@bar.com
+Title       : Bug-Learning
 
-Author      : Joan R. Access
-Affiliation : Other institute
-Email       : other@bar.com
+Author      : Author 1
+Affiliation : anonymous univ
+Email       : anonymous@anonymous.edu
 
 Bibliography: example.bib
 Logo        : True
