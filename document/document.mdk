@@ -1,7 +1,7 @@
 [INCLUDE=style/ieee]
 Title       : Bug-Learning
 
-Author      : Author 1
+Author      : Author 1,2,3,4
 Affiliation : anonymous univ
 Email       : anony@univ.edu
 
@@ -51,6 +51,14 @@ Line graphs to show program traces. Use other statistics as well - trace length,
 etc.
 
 ## Construct a model
+
+### Traditional Machine Learning
+
+~ Todo
+try linear models, like logistic regressions, svm and show why we need graphical models
+~
+
+### Model based Machine Learning
 
 We have started our exploration by using the Hidden Markov Model (HMM). HMMs are a generative
 model that can be used to learn and perform inference on sequential data. (More in background
