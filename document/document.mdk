@@ -21,11 +21,13 @@ parallel programs written using MPI , openMP.
 
 # Related Work
 
-Work on effective and efficient debugging of parallel programs has been around since HPC started. Much work has been done to provide insight into the runtime characteristics of parallel programs, including work in program tracing, instrumentation, and runtime program control (e.g., breakpoints). We provide here brief descriptions of the work done in these fields and where our work fits in.
+Work on effective and efficient debugging of parallel programs has been around since HPC started. We provide here brief descriptions of several pieces of work done in this fields and where our work fits in.
 
 Program analysis, instrumentation, and control of binaries is the area of focus for the Dyninst API and its sub-APIs. Dyninst allows for runtime instrumentation of binaries to obtain  [@buck2000api]. Other capabilities include static and dynamic analysis of program binaries, including analysis of control flows via abstractions of instructions, basic blocks, loops, and functions. Finally, Dyninst allows for advanced program flow control, using breakpoints, thread/processing control, and thread/process monitoring [@miller2014foundational]. While this provides useful insight into parallel programs, it is mostly meant to be built on top of to allow more advanced debugging features.
 
+Applying statistical models to debugging has become of interest lately in the correctness community for its potential for high speeds and automation. Much work has been done in utilizing program invariants, such as branching and function returns, built up over runtime for good and bad runs, which can be statistically modeled and used to diagnose correctness via memory activity in MPI [@GaoDMTracker] as well as general performance bugs in various serial C/C++/Java applications [@SongStatDebugPerf]. Work has also been done to extend this beyond program predicate invariants, to path profiles, then using similar statistical comparison modeling to determine likely causes of failures [@chilimbi2009holmes].
 
+Several works use richer statistical models to perform perform inspections of different runs of a program. [@andrzejewski2007statistical] introduces the uses of Latent Topic Models which can be used to explain differences between successful and failed runs through usage and bug *topics*, aiding in bug diagnostics in serial programs. Work in MPI includes using Markov Models to compactly describe control-flow in different branches and create Progress Dependence graph based on the flows indicated by the Markov Models. A Least-Progressed MPI task can then be identified based on the dependence of the tasks and that task is assumed likely to be at fault, allowing narrowed inspection of codes [@laguna2015diagnosis]. [@mitra2014accurate] extends this work to better handle loops in MPI codes.
 
 # Methodology
 ![Lifecycle] 
